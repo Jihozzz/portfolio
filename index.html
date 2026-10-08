@@ -283,6 +283,15 @@
         dl.stack {
           grid-template-columns: 6.5rem 1fr;
         }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+        }
       }
     </style>
   </head>
