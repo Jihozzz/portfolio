@@ -1,198 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jake De Vera, software and web developer</title>
-<meta name="description" content="Jake De Vera builds payroll, tax and records systems for local governments and small businesses in the Philippines.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;800&display=swap" rel="stylesheet">
-<style>
-:root{
-  --side:#0b5d5a;
-  --side-ink:#ffffff;
-  --side-soft:#bfe3df;
-  --bg:#f2f7f6;
-  --ink:#10211f;
-  --soft:#4a6360;
-  --line:#d2e2df;
-  --accent:#0b6b67;
-  --chip:#e0eeec;
-  --font:'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;
-}
-@media (prefers-color-scheme:dark){
-  :root{--side:#08403e;--bg:#0a1514;--ink:#e4f1ef;--soft:#9bb8b4;--line:#1f3a37;--accent:#6fd6cd;--chip:#12302d}
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:1.0625rem;line-height:1.6}
-a{color:var(--accent);text-underline-offset:.2em}
-a:hover{text-decoration-thickness:2px}
-:focus-visible{outline:3px solid #ffc933;outline-offset:3px}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jake De Vera, software and web developer</title>
+    <meta
+      name="description"
+      content="Jake De Vera builds payroll, tax and records systems for local governments and small businesses in the Philippines."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --side: #0b5d5a;
+        --side-ink: #ffffff;
+        --side-soft: #bfe3df;
+        --bg: #f2f7f6;
+        --ink: #10211f;
+        --soft: #4a6360;
+        --line: #d2e2df;
+        --accent: #0b6b67;
+        --chip: #e0eeec;
+        --font: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --side: #08403e;
+          --bg: #0a1514;
+          --ink: #e4f1ef;
+          --soft: #9bb8b4;
+          --line: #1f3a37;
+          --accent: #6fd6cd;
+          --chip: #12302d;
+        }
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font);
+        font-size: 1.0625rem;
+        line-height: 1.6;
+      }
+      a {
+        color: var(--accent);
+        text-underline-offset: 0.2em;
+      }
+      a:hover {
+        text-decoration-thickness: 2px;
+      }
+      :focus-visible {
+        outline: 3px solid #ffc933;
+        outline-offset: 3px;
+      }
 
-.layout{display:grid;grid-template-columns:20rem 1fr;min-height:100vh}
+      .layout {
+        display: grid;
+        grid-template-columns: 20rem 1fr;
+        min-height: 100vh;
+      }
 
-aside.side{background:var(--side);color:var(--side-ink);padding:2.5rem 2rem;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:2rem;overflow-y:auto}
-.photo{width:7rem;height:7rem;border-radius:50%;object-fit:cover;background:var(--side-soft);display:block}
-.photo-fallback{display:none;width:7rem;height:7rem;border-radius:50%;background:var(--side-soft);color:var(--side);font-weight:800;font-size:2rem;align-items:center;justify-content:center}
-.side .name{font-weight:800;font-size:1.75rem;line-height:1.1;letter-spacing:-.01em}
-.side .role{margin-top:.4rem;color:var(--side-soft);font-size:1rem}
-.side nav{display:flex;flex-direction:column;gap:.35rem;font-weight:500}
-.side nav a{color:var(--side-ink);text-decoration:none;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.2)}
-.side nav a:hover{border-bottom-color:#ffc933}
-.side .mail{margin-top:auto;font-size:.95rem;color:var(--side-soft)}
-.side .mail a{color:var(--side-ink);overflow-wrap:anywhere;font-weight:600}
+      aside.side {
+        background: var(--side);
+        color: var(--side-ink);
+        padding: 2.5rem 2rem;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        overflow-y: auto;
+      }
+      .photo {
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+        object-fit: cover;
+        background: var(--side-soft);
+        display: block;
+      }
+      .photo-fallback {
+        display: none;
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+        background: var(--side-soft);
+        color: var(--side);
+        font-weight: 800;
+        font-size: 2rem;
+        align-items: center;
+        justify-content: center;
+      }
+      .side .name {
+        font-weight: 800;
+        font-size: 1.75rem;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+      }
+      .side .role {
+        margin-top: 0.4rem;
+        color: var(--side-soft);
+        font-size: 1rem;
+      }
+      .side nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        font-weight: 500;
+      }
+      .side nav a {
+        color: var(--side-ink);
+        text-decoration: none;
+        padding: 0.3rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .side nav a:hover {
+        border-bottom-color: #ffc933;
+      }
+      .side .mail {
+        margin-top: auto;
+        font-size: 0.95rem;
+        color: var(--side-soft);
+      }
+      .side .mail a {
+        color: var(--side-ink);
+        overflow-wrap: anywhere;
+        font-weight: 600;
+      }
 
-main{padding:4rem 4rem 3rem;max-width:56rem}
-h1{font-weight:800;font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.06;letter-spacing:-.025em}
-.lead-sub{margin-top:1.5rem;max-width:32em;color:var(--soft)}
+      main {
+        padding: 4rem 4rem 3rem;
+        max-width: 56rem;
+      }
+      h1 {
+        font-weight: 800;
+        font-size: clamp(2rem, 4.4vw, 3.4rem);
+        line-height: 1.06;
+        letter-spacing: -0.025em;
+      }
+      .lead-sub {
+        margin-top: 1.5rem;
+        max-width: 32em;
+        color: var(--soft);
+      }
 
-section{margin-top:5rem}
-h2{font-weight:800;font-size:1.5rem;letter-spacing:-.01em;padding-bottom:.75rem;border-bottom:3px solid var(--ink);margin-bottom:1.5rem}
-.about p{max-width:34em}
-.about p+p{margin-top:1.1rem}
+      section {
+        margin-top: 5rem;
+      }
+      h2 {
+        font-weight: 800;
+        font-size: 1.5rem;
+        letter-spacing: -0.01em;
+        padding-bottom: 0.75rem;
+        border-bottom: 3px solid var(--ink);
+        margin-bottom: 1.5rem;
+      }
+      .about p {
+        max-width: 34em;
+      }
+      .about p + p {
+        margin-top: 1.1rem;
+      }
 
-.systems{list-style:none}
-.systems>li{display:grid;grid-template-columns:13rem 1fr;gap:2rem;padding:1.75rem 0;border-bottom:1px solid var(--line)}
-.systems h3{font-weight:800;font-size:1.15rem;line-height:1.25}
-.client{display:block;margin-top:.3rem;font-weight:500;font-size:.9rem;color:var(--soft)}
-.systems p{max-width:34em}
-.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem;list-style:none}
-.tags li{padding:.1rem .7rem;background:var(--chip);border-radius:4px;font-size:.85rem;font-weight:500;color:var(--soft)}
+      .systems {
+        list-style: none;
+      }
+      .systems > li {
+        display: grid;
+        grid-template-columns: 13rem 1fr;
+        gap: 2rem;
+        padding: 1.75rem 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .systems h3 {
+        font-weight: 800;
+        font-size: 1.15rem;
+        line-height: 1.25;
+      }
+      .client {
+        display: block;
+        margin-top: 0.3rem;
+        font-weight: 500;
+        font-size: 0.9rem;
+        color: var(--soft);
+      }
+      .systems p {
+        max-width: 34em;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.9rem;
+        list-style: none;
+      }
+      .tags li {
+        padding: 0.1rem 0.7rem;
+        background: var(--chip);
+        border-radius: 4px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--soft);
+      }
 
-dl.stack{display:grid;grid-template-columns:9rem 1fr;row-gap:.7rem;column-gap:1.5rem}
-dl.stack dt{font-weight:600;color:var(--soft)}
+      dl.stack {
+        display: grid;
+        grid-template-columns: 9rem 1fr;
+        row-gap: 0.7rem;
+        column-gap: 1.5rem;
+      }
+      dl.stack dt {
+        font-weight: 600;
+        color: var(--soft);
+      }
 
-.contact .big{font-weight:800;font-size:clamp(1.3rem,3vw,2rem);line-height:1.2;overflow-wrap:anywhere}
-.contact p{max-width:32em}
-.links{display:flex;gap:1.5rem;margin-top:1.25rem;list-style:none}
-footer{margin-top:4rem;color:var(--soft);font-size:.9rem}
+      .contact .big {
+        font-weight: 800;
+        font-size: clamp(1.3rem, 3vw, 2rem);
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+      }
+      .contact p {
+        max-width: 32em;
+      }
+      .links {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 1.25rem;
+        list-style: none;
+      }
+      footer {
+        margin-top: 4rem;
+        color: var(--soft);
+        font-size: 0.9rem;
+      }
 
-@media (max-width:900px){
-  .layout{grid-template-columns:1fr}
-  aside.side{position:static;height:auto;padding:1.75rem 1.25rem;gap:1.5rem}
-  .side nav{flex-direction:row;flex-wrap:wrap;gap:1.25rem}
-  .side nav a{border-bottom:0}
-  .side .mail{margin-top:0}
-  .photo,.photo-fallback{width:5rem;height:5rem}
-  main{padding:2.5rem 1.25rem 2.5rem}
-  section{margin-top:3.5rem}
-  .systems>li{grid-template-columns:1fr;gap:.75rem}
-  dl.stack{grid-template-columns:6.5rem 1fr}
-}
-</style>
-</head>
-<body>
-<div class="layout">
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        aside.side {
+          position: static;
+          height: auto;
+          padding: 1.75rem 1.25rem;
+          gap: 1.5rem;
+        }
+        .side nav {
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 1.25rem;
+        }
+        .side nav a {
+          border-bottom: 0;
+        }
+        .side .mail {
+          margin-top: 0;
+        }
+        .photo,
+        .photo-fallback {
+          width: 5rem;
+          height: 5rem;
+        }
+        main {
+          padding: 2.5rem 1.25rem 2.5rem;
+        }
+        section {
+          margin-top: 3.5rem;
+        }
+        .systems > li {
+          grid-template-columns: 1fr;
+          gap: 0.75rem;
+        }
+        dl.stack {
+          grid-template-columns: 6.5rem 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="side">
+        <div>
+          <img
+            class="photo"
+            src="assets/profile.jpeg"
+            alt="Portrait of Jake De Vera"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <div class="photo-fallback" aria-hidden="true">JD</div>
+        </div>
+        <div>
+          <p class="name">Jake De Vera</p>
+          <p class="role">Software and web developer, Tarlac City</p>
+        </div>
+        <nav aria-label="Sections">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#stack">Tools</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <p class="mail">
+          Open to new work<br /><a href="mailto:jakedevera904@gmail.com"
+            >jakedevera904@gmail.com</a
+          >
+        </p>
+      </aside>
 
-  <aside class="side">
-    <div>
-      <img class="photo" src="assets/profile.jpeg" alt="Portrait of Jake De Vera" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="photo-fallback" aria-hidden="true">JD</div>
+      <main id="top">
+        <h1>
+          I build payroll, tax and records systems for local governments and
+          small businesses in the Philippines.
+        </h1>
+        <p class="lead-sub">
+          Most of my work is in CakePHP and AngularJS. I also build WordPress
+          sites for clients who just need something simple to manage.
+        </p>
+
+        <section id="about" class="about">
+          <h2>About</h2>
+          <p>
+            I have a BS in Information Technology and a little over eight months
+            of professional work, almost all of it on existing CakePHP and
+            AngularJS codebases for local government units.
+          </p>
+          <p>
+            What I care about is that the numbers come out right: deductions on
+            a payslip, a real property tax application, a resolution marked
+            approved or pending, and the printed report that has to match all of
+            them.
+          </p>
+        </section>
+
+        <section id="work">
+          <h2>Systems I've worked on</h2>
+          <ul class="systems">
+            <li>
+              <div>
+                <h3>HRIS time log computation</h3>
+                <span class="client">Jelexie, private company</span>
+              </div>
+              <div>
+                <p>
+                  Computation of tardiness, undertime, overbreak and overtime. I
+                  moved hardcoded deduction rules into a configurable database
+                  table, added an Overbreak Management module, and automated
+                  overtime crediting for logistics drivers.
+                </p>
+                <ul class="tags">
+                  <li>CakePHP</li>
+                  <li>AngularJS</li>
+                  <li>MySQL</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>EHRIS</h3>
+                <span class="client">Local government, Quezon</span>
+              </div>
+              <div>
+                <p>
+                  Electronic Human Resource Information System for employee
+                  records, daily time records and payroll.
+                </p>
+                <ul class="tags">
+                  <li>CakePHP</li>
+                  <li>AngularJS</li>
+                  <li>MySQL</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>Electronic Legislative Information System</h3>
+                <span class="client">Local government</span>
+              </div>
+              <div>
+                <p>
+                  Document management for legislative records, including the
+                  Resolutions module.fixed the
+                  printable reports so approved, disapproved and pending
+                  resolutions are reported correctly.
+                </p>
+                <ul class="tags">
+                  <li>CakePHP</li>
+                  <li>AngularJS</li>
+                  <li>Bootstrap</li>
+                  <li>MySQL</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>Electronic Real Property Tax Applications</h3>
+                <span class="client">Local government</span>
+              </div>
+              <div>
+                <p>
+                  Online application and processing of real property tax
+                  transactions.
+                </p>
+                <ul class="tags">
+                  <li>CakePHP</li>
+                  <li>AngularJS</li>
+                  <li>MySQL</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>Barangay household profiling</h3>
+                <span class="client">Capas, Tarlac</span>
+              </div>
+              <div>
+                <p>
+                  Household profiling and reporting for barangays, with bulk
+                  data import and generated reports.
+                </p>
+                <ul class="tags">
+                  <li>PHP</li>
+                  <li>Bootstrap</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section id="stack">
+          <h2>Tools</h2>
+          <dl class="stack">
+            <dt>Frontend</dt>
+            <dd>AngularJS, Bootstrap, HTML5, CSS, JavaScript</dd>
+            <dt>Backend</dt>
+            <dd>PHP, CakePHP 2.x</dd>
+            <dt>Databases</dt>
+            <dd>MySQL</dd>
+            <dt>Websites</dt>
+            <dd>WordPress, Yootheme Builder</dd>
+            <dt>Daily tools</dt>
+            <dd>VS Code, FileZilla, Claude, Vercel for hosting</dd>
+          </dl>
+        </section>
+
+        <section id="contact" class="contact">
+          <h2>Contact</h2>
+          <p class="big">
+            <a href="mailto:jakedevera904@gmail.com">jakedevera904@gmail.com</a>
+          </p>
+          <p style="margin-top: 1rem">
+            I'm open to new work. Email is the quickest way to reach me.
+          </p>
+          <ul class="links">
+            <li>
+              <a
+                href="https://github.com/jakedevera"
+                target="_blank"
+                rel="noopener"
+                >GitHub</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://linkedin.com/in/jakedevera"
+                target="_blank"
+                rel="noopener"
+                >LinkedIn</a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <footer>Jake Aishein G. De Vera</footer>
+      </main>
     </div>
-    <div>
-      <p class="name">Jake De Vera</p>
-      <p class="role">Software and web developer, Tarlac City</p>
-    </div>
-    <nav aria-label="Sections">
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#stack">Tools</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <p class="mail">Open to new work<br><a href="mailto:jake.devera@email.com">jake.devera@email.com</a></p>
-  </aside>
-
-  <main id="top">
-    <h1>I build payroll, tax and records systems for local governments and small businesses in the Philippines.</h1>
-    <p class="lead-sub">Most of my work is in CakePHP and AngularJS. I also build WordPress sites for clients who just need something simple to manage.</p>
-
-    <section id="about" class="about">
-      <h2>About</h2>
-      <p>I have a BS in Information Technology and a little over eight months of professional work, almost all of it on existing CakePHP and AngularJS codebases for local government units and small businesses.</p>
-      <p>What I care about is that the numbers come out right: deductions on a payslip, a real property tax application, a resolution marked approved or pending, and the printed report that has to match all of them.</p>
-    </section>
-
-    <section id="work">
-      <h2>Systems I've worked on</h2>
-      <ul class="systems">
-        <li>
-          <div>
-            <h3>HRIS time log computation</h3>
-            <span class="client">Jelexie, private company</span>
-          </div>
-          <div>
-            <p>Computation of tardiness, undertime, overbreak and overtime. I moved hardcoded deduction rules into a configurable database table, added an Overbreak Management module, and automated overtime crediting for logistics drivers.</p>
-            <ul class="tags"><li>CakePHP</li><li>AngularJS</li><li>MySQL</li></ul>
-          </div>
-        </li>
-        <li>
-          <div>
-            <h3>EHRIS</h3>
-            <span class="client">Local government, Quezon</span>
-          </div>
-          <div>
-            <p>Electronic Human Resource Information System for employee records, daily time records and payroll.</p>
-            <ul class="tags"><li>CakePHP</li><li>AngularJS</li><li>MySQL</li></ul>
-          </div>
-        </li>
-        <li>
-          <div>
-            <h3>Electronic Legislative Information System</h3>
-            <span class="client">Local government</span>
-          </div>
-          <div>
-            <p>Document management for legislative records, including the Resolutions module. I redesigned the interface and fixed the printable reports so approved, disapproved and pending resolutions are reported correctly.</p>
-            <ul class="tags"><li>CakePHP</li><li>AngularJS</li><li>Bootstrap</li><li>MySQL</li></ul>
-          </div>
-        </li>
-        <li>
-          <div>
-            <h3>Electronic Real Property Tax Applications</h3>
-            <span class="client">Local government</span>
-          </div>
-          <div>
-            <p>Online application and processing of real property tax transactions.</p>
-            <ul class="tags"><li>CakePHP</li><li>AngularJS</li><li>MySQL</li></ul>
-          </div>
-        </li>
-        <li>
-          <div>
-            <h3>Barangay household profiling</h3>
-            <span class="client">Capas, Tarlac</span>
-          </div>
-          <div>
-            <p>Household profiling and reporting for barangays, with bulk data import and generated reports.</p>
-            <ul class="tags"><li>PHP</li><li>MariaDB</li><li>Bootstrap</li></ul>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <section id="stack">
-      <h2>Tools</h2>
-      <dl class="stack">
-        <dt>Frontend</dt><dd>AngularJS, Bootstrap, HTML5, CSS, JavaScript</dd>
-        <dt>Backend</dt><dd>PHP, CakePHP 2.x</dd>
-        <dt>Databases</dt><dd>MySQL</dd>
-        <dt>Websites</dt><dd>WordPress, Yootheme Builder</dd>
-        <dt>Daily tools</dt><dd>VS Code, FileZilla, Claude, Vercel for hosting</dd>
-      </dl>
-    </section>
-
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
-      <p class="big"><a href="mailto:jake.devera@email.com">jake.devera@email.com</a></p>
-      <p style="margin-top:1rem">I'm open to new work. Email is the quickest way to reach me.</p>
-      <ul class="links">
-        <li><a href="https://github.com/jakedevera" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://linkedin.com/in/jakedevera" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </section>
-
-    <footer>Jake Aishein G. De Vera</footer>
-  </main>
-
-</div>
-</body>
+  </body>
 </html>
