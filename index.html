@@ -171,8 +171,22 @@
       .links { display: flex; gap: 1rem; margin-top: 1.5rem; list-style: none; }
       footer { margin-top: 5rem; padding: 1.5rem 0 2.5rem; border-top: 1px solid var(--rule); color: var(--soft); font-size: 0.9rem; }
 
+      /* Resume popup */
+      dialog.resume { width: min(60rem, 94vw); height: min(90vh, 62rem); padding: 0; margin: auto; border: 1px solid var(--rule); border-radius: 16px; background: var(--panel); color: var(--ink); box-shadow: 0 40px 120px rgba(0, 0, 0, 0.55); overflow: hidden; }
+      dialog.resume[open] { display: flex; flex-direction: column; animation: pop 0.2s ease-out; }
+      dialog.resume::backdrop { background: rgba(3, 2, 10, 0.72); backdrop-filter: blur(4px); }
+      @keyframes pop { from { opacity: 0; transform: translateY(10px) scale(0.98); } }
+      .resume-bar { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem 0.75rem 1.25rem; border-bottom: 1px solid var(--rule); }
+      .resume-bar h2 { font-size: 1.05rem; margin: 0 auto 0 0; }
+      .resume-bar .btn { padding: 0.4rem 0.9rem; font-size: 0.85rem; }
+      .resume-bar .close { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; padding: 0; border-radius: 50%; cursor: pointer; font-size: 1.3rem; line-height: 1; }
+      .resume-frame { flex: 1; width: 100%; border: 0; background: #fff; }
+      .resume-note { padding: 0.6rem 1.25rem; font-size: 0.85rem; color: var(--soft); border-top: 1px solid var(--rule); }
+      body.modal-open { overflow: hidden; }
+
       @media (max-width: 860px) {
         header nav { display: none; }
+        dialog.resume { width: 100vw; height: 100dvh; max-width: none; max-height: none; border-radius: 0; border: 0; }
         .hero { grid-template-columns: 1fr; min-height: 0; padding: 2.5rem 0 4rem; gap: 2.5rem; }
         .scroll { display: none; }
         section { padding-top: 3.5rem; }
@@ -223,6 +237,7 @@
           <div class="actions rise">
             <a class="btn primary" href="mailto:jakedevera904@gmail.com">Get in touch</a>
             <a class="btn" href="#work">See my work</a>
+            <button class="btn" type="button" data-resume-open>View resume</button>
           </div>
           <p class="status rise"><i aria-hidden="true"></i> Open to new work, based in Tarlac City</p>
         </div>
@@ -359,6 +374,7 @@
           <p class="big" style="margin:0;max-width:none;"><a href="mailto:jakedevera904@gmail.com">jakedevera904@gmail.com</a></p>
           <p>I'm open to new work. Email is the quickest way to reach me.</p>
           <ul class="links">
+            <li><button class="btn" type="button" data-resume-open>View resume</button></li>
             <li><a class="btn" href="https://github.com/Jihozzz" target="_blank" rel="noopener">GitHub</a></li>
             <li><a class="btn" href="https://linkedin.com/in/jakedevera" target="_blank" rel="noopener">LinkedIn</a></li>
           </ul>
@@ -367,6 +383,37 @@
 
       <footer>Jake Aishein G. De Vera</footer>
     </main>
+
+    <dialog class="resume" id="resume-dialog" aria-labelledby="resume-title">
+      <div class="resume-bar">
+        <h2 id="resume-title">Resume</h2>
+        <a class="btn" href="assets/resume.pdf" download>Download</a>
+        <a class="btn" href="assets/resume.pdf" target="_blank" rel="noopener">Open in new tab</a>
+        <button class="btn close" id="resume-close" type="button" aria-label="Close resume">&times;</button>
+      </div>
+      <iframe class="resume-frame" id="resume-frame" title="Jake De Vera resume" data-src="assets/resume.pdf#toolbar=0&navpanes=0"></iframe>
+      <p class="resume-note">Resume not showing on your device? Use Download or Open in new tab.</p>
+    </dialog>
+
+    <script>
+      (function () {
+        var dlg = document.getElementById("resume-dialog");
+        var frame = document.getElementById("resume-frame");
+        function openResume() {
+          if (!frame.getAttribute("src")) frame.setAttribute("src", frame.getAttribute("data-src"));
+          dlg.showModal();
+          document.body.classList.add("modal-open");
+        }
+        function closeResume() { dlg.close(); }
+        document.querySelectorAll("[data-resume-open]").forEach(function (b) {
+          b.addEventListener("click", openResume);
+        });
+        document.getElementById("resume-close").addEventListener("click", closeResume);
+        // A click on the dimmed backdrop targets the dialog itself
+        dlg.addEventListener("click", function (e) { if (e.target === dlg) closeResume(); });
+        dlg.addEventListener("close", function () { document.body.classList.remove("modal-open"); });
+      })();
+    </script>
 
     <script>
       (function () {
