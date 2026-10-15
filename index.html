@@ -180,8 +180,21 @@
       .resume-bar h2 { font-size: 1.05rem; margin: 0 auto 0 0; }
       .resume-bar .btn { padding: 0.4rem 0.9rem; font-size: 0.85rem; }
       .resume-bar .close { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; padding: 0; border-radius: 50%; cursor: pointer; font-size: 1.3rem; line-height: 1; }
-      .resume-frame { flex: 1; width: 100%; border: 0; background: #fff; }
-      .resume-note { padding: 0.6rem 1.25rem; font-size: 0.85rem; color: var(--soft); border-top: 1px solid var(--rule); }
+      .resume-body { flex: 1; overflow-y: auto; padding: 1.75rem clamp(1.25rem, 4vw, 2.5rem) 2.5rem; }
+      .resume-body h3 { font-family: var(--head); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent2); margin: 1.75rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--rule); }
+      .resume-body .r-name { font-family: var(--head); font-weight: 600; font-size: clamp(1.4rem, 3.5vw, 1.9rem); letter-spacing: -0.02em; }
+      .resume-body .r-contact { color: var(--soft); font-size: 0.92rem; margin-top: 0.25rem; }
+      .resume-body p, .resume-body li, .resume-body dd { color: var(--soft); font-size: 0.97rem; }
+      .resume-body ul { padding-left: 1.2rem; margin-top: 0.4rem; }
+      .resume-body li { margin-top: 0.2rem; }
+      .r-row { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 0.9rem; }
+      .r-row:first-of-type { margin-top: 0; }
+      .r-row strong { color: var(--ink); font-weight: 600; }
+      .r-row em { font-style: normal; color: var(--soft); font-size: 0.9rem; white-space: nowrap; }
+      .r-sub { color: var(--soft); font-size: 0.92rem; }
+      .r-skills { display: grid; grid-template-columns: 9rem 1fr; gap: 0.5rem 1rem; }
+      .r-skills dt { color: var(--ink); font-weight: 600; font-size: 0.97rem; }
+      @media (max-width: 560px) { .r-skills { grid-template-columns: 1fr; gap: 0; } .r-skills dd { margin-bottom: 0.6rem; } }
       body.modal-open { overflow: hidden; }
 
       @media (max-width: 860px) {
@@ -210,6 +223,7 @@
         <nav aria-label="Sections">
           <a href="#about">About</a>
           <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
           <a href="#tools">Tools</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -298,9 +312,10 @@
           </div>
           <div>
             <p>
-              I have a BS in Information Technology and a little over eight
-              months of professional work, almost all of it on existing CakePHP
-              and AngularJS codebases for local government units.
+              I have a BS in Information Technology from AMA Computer College
+              in Tarlac. Since February 2026 I've been an Assistant System/Web
+              Developer at My Creativepanda Inc., working mostly on existing
+              CakePHP and AngularJS codebases for local government units.
             </p>
             <p>
               What I care about is that the numbers come out right: deductions
@@ -316,10 +331,10 @@
         <h2>Systems I've worked on</h2>
         <ul class="grid">
           <li class="card wide">
-            <h3>HRIS time log computation</h3>
-            <span class="client">Jelexie, private company</span>
+            <h3>Jelexie Bakeshop HRIS</h3>
+            <span class="client">Private company</span>
             <p>
-              Computation of tardiness, undertime, overbreak and overtime. I
+              HR and payroll system with leave and manpower request modules and PDF performance evaluation reports. On the time log computation (tardiness, undertime, overbreak and overtime), I
               moved hardcoded deduction rules into a configurable database
               table, added an Overbreak Management module, and automated
               overtime crediting for logistics drivers.
@@ -327,16 +342,16 @@
             <ul class="tags"><li>CakePHP</li><li>AngularJS</li><li>MySQL</li></ul>
           </li>
           <li class="card">
-            <h3>EHRIS</h3>
-            <span class="client">Local government, Quezon</span>
-            <p>Electronic Human Resource Information System for employee records, daily time records and payroll.</p>
+            <h3>Quezon HRIS</h3>
+            <span class="client">Municipality of Quezon, Palawan</span>
+            <p>HR information system covering daily time records, leave requests and HR reports.</p>
             <ul class="tags"><li>CakePHP</li><li>AngularJS</li><li>MySQL</li></ul>
           </li>
           <li class="card">
-            <h3>Electronic Legislative Information System</h3>
-            <span class="client">Local government</span>
+            <h3>eLIS, Electronic Legislative Information System</h3>
+            <span class="client">LGU Capas, Tarlac</span>
             <p>
-              Document management for legislative records. In the Resolutions
+              Built liquidation reports, monthly payables PDFs, a holiday-aware calendar and purchase request-to-approval workflows. In the Resolutions
               module I fixed the printable reports so approved, disapproved and
               pending resolutions are reported correctly.
             </p>
@@ -344,17 +359,27 @@
           </li>
           <li class="card">
             <h3>Electronic Real Property Tax Applications</h3>
-            <span class="client">Local government</span>
-            <p>Online application and processing of real property tax transactions.</p>
+            <span class="client">LGU in Tarlac</span>
+            <p>Processing of real property tax applications, with staff sign-in and a public online application portal.</p>
             <ul class="tags"><li>CakePHP</li><li>AngularJS</li><li>MySQL</li></ul>
           </li>
           <li class="card">
-            <h3>Barangay household profiling</h3>
+            <h3>EBIS, Electronic Barangay Information System</h3>
             <span class="client">Capas, Tarlac</span>
-            <p>Household profiling and reporting for barangays, with bulk data import and generated reports.</p>
-            <ul class="tags"><li>PHP</li><li>Bootstrap</li></ul>
+            <p>Excel household profile import with duplicate prevention, PDF and export reports for CDRRMO and evacuation center data, and database fixes.</p>
+            <ul class="tags"><li>CakePHP</li><li>AngularJS</li><li>MySQL</li></ul>
           </li>
         </ul>
+      </section>
+
+      <section id="experience">
+        <h2>Experience and education</h2>
+        <dl class="tools">
+          <dt>Work</dt><dd>Assistant System/Web Developer, My Creativepanda Inc., February 2026 to present</dd>
+          <dt>Training</dt><dd>Front Desk Clerk and Level 1 IT Onsite Engineer, Foundever, Tarlac City, August to December 2024<br />Government Internship Program, LGU Ramos Department of Agriculture, Tarlac, August to December 2025</dd>
+          <dt>Education</dt><dd>BS Information Technology, AMA Computer College, Tarlac, 2021 to 2025<br />Senior High School, Information Communication Technology, St. Vincent School Foundation Inc., 2019 to 2021</dd>
+          <dt>Certificates</dt><dd>Cisco Networking Academy: DevNet Associate, Cybersecurity Essentials, Introduction to Cybersecurity, and three CCNA courses<br />IRCITE Conference, Bataan Peninsula State University</dd>
+        </dl>
       </section>
 
       <section id="tools">
@@ -365,6 +390,7 @@
           <dt>Databases</dt><dd>MySQL</dd>
           <dt>Websites</dt><dd>WordPress, Yootheme Builder</dd>
           <dt>Daily tools</dt><dd>VS Code, FileZilla, Claude, Vercel for hosting</dd>
+          <dt>IT support</dt><dd>Computer troubleshooting, Microsoft Office (Word, Excel, PowerPoint)</dd>
         </dl>
       </section>
 
@@ -387,20 +413,83 @@
     <dialog class="resume" id="resume-dialog" aria-labelledby="resume-title">
       <div class="resume-bar">
         <h2 id="resume-title">Resume</h2>
-        <a class="btn" href="assets/resume.pdf" download>Download</a>
-        <a class="btn" href="assets/resume.pdf" target="_blank" rel="noopener">Open in new tab</a>
+        <a class="btn" href="assets/resume.pdf" download>Download PDF</a>
         <button class="btn close" id="resume-close" type="button" aria-label="Close resume">&times;</button>
       </div>
-      <iframe class="resume-frame" id="resume-frame" title="Jake De Vera resume" data-src="assets/resume.pdf#toolbar=0&navpanes=0"></iframe>
-      <p class="resume-note">Resume not showing on your device? Use Download or Open in new tab.</p>
+      <div class="resume-body">
+        <p class="r-name">Jake Aishein G. De Vera</p>
+        <p class="r-contact">jakedevera904@gmail.com | jake-devera.vercel.app | Tarlac City, Philippines</p>
+
+        <h3>Career objective</h3>
+        <p>A motivated BS Information Technology graduate with hands-on experience in IT support and web development. Seeking an entry-level IT or developer role where I can contribute technical skills, support operations, and grow within a team-oriented environment.</p>
+
+        <h3>Technical skills</h3>
+        <dl class="r-skills">
+          <dt>Website development</dt><dd>WordPress, YOOtheme Builder (page layouts, sections, widgets, and site customization)</dd>
+          <dt>System development</dt><dd>PHP and JavaScript, used for building, maintaining, and updating web-based systems</dd>
+          <dt>IT support and tools</dt><dd>Microsoft Office (Word, Excel, PowerPoint), computer troubleshooting, basic hardware and software support, file management and system updates</dd>
+          <dt>Soft skills</dt><dd>Team collaboration and adaptability, quick learner with strong attention to detail, client-facing communication</dd>
+        </dl>
+
+        <h3>Work experience</h3>
+        <div class="r-row"><strong>Assistant System/Web Developer, My Creativepanda Inc.</strong><em>February 2026 to present</em></div>
+        <ul>
+          <li>Assisted in the development and maintenance of web and system applications</li>
+          <li>Collaborated with the development team on feature implementation and bug fixes</li>
+          <li>Supported front-end and back-end tasks using relevant web technologies</li>
+          <li>Participated in code reviews and contributed to improving system functionality</li>
+        </ul>
+        <p class="r-sub" style="margin-top:1rem;"><strong style="color:var(--ink);">Systems developed and maintained</strong></p>
+        <ul>
+          <li><strong style="color:var(--ink);">Quezon HRIS:</strong> HR information system for the Municipality of Quezon, Palawan, covering daily time records, leave requests, and HR reports</li>
+          <li><strong style="color:var(--ink);">Jelexie Bakeshop HRIS:</strong> HR/payroll system with configurable DTR computation (tardiness, undertime, overbreak, overtime), leave and manpower request modules, and PDF performance evaluation reports</li>
+          <li><strong style="color:var(--ink);">eLIS Capas:</strong> Electronic Legislative Information System for LGU Capas, Tarlac; built liquidation reports, monthly payables PDFs, a holiday-aware calendar, and purchase request-to-approval workflows</li>
+          <li><strong style="color:var(--ink);">EBIS Capas:</strong> Electronic Barangay Information System for Capas, Tarlac; built Excel household profile import with duplicate prevention, PDF and export reports for CDRRMO and evacuation center data, and database fixes</li>
+          <li><strong style="color:var(--ink);">eRPTA:</strong> Electronic Real Property Tax Applications for an LGU in Tarlac, with staff sign-in and a public online application portal</li>
+        </ul>
+        <p class="r-sub" style="margin-top:0.75rem;">Technologies: PHP (CakePHP), AngularJS, JavaScript, MySQL</p>
+
+        <h3>On-the-job training</h3>
+        <div class="r-row"><strong>Front Desk Clerk and Level 1 IT Onsite Engineer, Foundever, Tarlac City</strong><em>August to December 2024</em></div>
+        <ul>
+          <li>Handled front desk inquiries and assisted with candidate assessments</li>
+          <li>Provided Level 1 IT support including computer troubleshooting and resolving basic hardware and software issues</li>
+          <li>Performed file management and system updates to maintain operational efficiency</li>
+          <li>Collaborated with administrative and technical staff on cross-functional tasks</li>
+        </ul>
+        <div class="r-row"><strong>Government Internship Program, LGU Ramos Department of Agriculture, Tarlac</strong><em>August to December 2025</em></div>
+        <ul>
+          <li>Assisted the IT and agricultural department with technical and administrative support</li>
+          <li>Supported data encoding, file management, and system maintenance activities</li>
+          <li>Coordinated with staff to ensure smooth day-to-day operations</li>
+        </ul>
+
+        <h3>Education</h3>
+        <div class="r-row"><strong>Bachelor of Science in Information Technology</strong><em>2021 to 2025</em></div>
+        <p class="r-sub">AMA Computer College, Tarlac</p>
+        <div class="r-row"><strong>Senior High School, Information Communication Technology</strong><em>2019 to 2021</em></div>
+        <p class="r-sub">St. Vincent School Foundation Inc.</p>
+
+        <h3>Seminars and certifications</h3>
+        <div class="r-row"><strong>IRCITE Conference</strong></div>
+        <p class="r-sub">Bataan Peninsula State University, International Research Conference in IT Education</p>
+        <div class="r-row"><strong>Cisco Networking Academy: network security</strong></div>
+        <ul>
+          <li>DevNet Associate (Mar 2024)</li>
+          <li>Cybersecurity Essentials (Mar 2024)</li>
+          <li>CCNA: Enterprise Networking, Security, and Automation (Dec 2023)</li>
+          <li>Introduction to Cybersecurity (Dec 2023)</li>
+          <li>CCNA: Switching, Routing, and Wireless Essentials (Aug 2023)</li>
+          <li>Emerging Technologies Workshop (Aug 2023)</li>
+          <li>CCNA: Introduction to Networks (Apr 2023)</li>
+        </ul>
+      </div>
     </dialog>
 
     <script>
       (function () {
         var dlg = document.getElementById("resume-dialog");
-        var frame = document.getElementById("resume-frame");
         function openResume() {
-          if (!frame.getAttribute("src")) frame.setAttribute("src", frame.getAttribute("data-src"));
           dlg.showModal();
           document.body.classList.add("modal-open");
         }
